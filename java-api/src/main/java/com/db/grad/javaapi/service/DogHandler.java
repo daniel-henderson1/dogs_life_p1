@@ -41,4 +41,17 @@ public class DogHandler {
     {
         return dogsRepo.save( dogToUpdate );
     }
+
+    public boolean removeDog(long uniqueId)
+    {
+        boolean result = false;
+
+        Dog theDog = dogsRepo.findById(uniqueId);
+        if(theDog != null)
+        {
+            result = dogsRepo.delete(theDog);
+        }
+
+        return  result;
+    }
 }
