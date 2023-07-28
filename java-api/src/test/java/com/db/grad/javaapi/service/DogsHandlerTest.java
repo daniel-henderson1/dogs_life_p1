@@ -70,4 +70,18 @@ public class DogsHandlerTest {
         //assert
         assertEquals( expectedResult, actualResult );
     }
+
+    @Test
+    public void check_if_no_matching_dogs() {
+        //arrange
+        DogHandler cut = new DogHandler(dogRepo);
+
+        Dog expectedResult = null;
+
+        //act
+        Dog actualResult = cut.getDogByName("NonexistantDog");
+
+        //assert
+        assertEquals( expectedResult, actualResult );
+    }
 }

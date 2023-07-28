@@ -27,8 +27,7 @@ public class DogHandler {
         testDog.setName(name);
         List<Dog> result = dogsRepo.findByName(testDog);
 
-
-        if (name.equals(null) || result.size() >= 2) {
+        if (result.size() == 0 || name.equals(null) || result.size() >= 2) {
             return null;
         }
         return result.get(0);
