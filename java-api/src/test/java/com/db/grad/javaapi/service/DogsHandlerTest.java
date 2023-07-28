@@ -32,4 +32,42 @@ public class DogsHandlerTest {
         //assert
         assertEquals( expectedResult, actualResult );
     }
+
+    @Test
+    public void retrieve_dog_by_name_if_exists_without_duplicates(){
+        //arrange
+        DogHandler cut = new DogHandler(dogRepo);
+        Dog theDog = new Dog();
+        theDog.setName("Bruno");
+        cut.addDog( theDog );
+
+        Dog expectedResult = theDog;
+
+        //act
+        Dog actualResult = cut.getDogByName("Bruno");
+
+        //assert
+        assertEquals( expectedResult, actualResult );
+    }
+
+    @Test
+    public void retrieve_dog_by_name_if_exists_with_duplicates(){
+        //arrange
+        DogHandler cut = new DogHandler(dogRepo);
+        Dog theDog = new Dog();
+        theDog.setName("Bruno");
+        cut.addDog( theDog );
+
+        Dog secondDog = new Dog();
+        secondDog.setName("Bruno");
+        cut.addDog( secondDog );
+
+        Dog expectedResult = null;
+
+        //act
+        Dog actualResult = cut.getDogByName("Bruno");
+
+        //assert
+        assertEquals( expectedResult, actualResult );
+    }
 }
