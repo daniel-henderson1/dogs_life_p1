@@ -132,5 +132,29 @@ public class DogsHandlerTest {
         // assert
         assertNull( actualResult );
     }
+    @Test
+    public  void    update_dog_that_exists_returns_dog_id()
+    {
+        // arrange
+        DogHandler cut = new DogHandler( dogRepo );
+        Dog theDog = new Dog();
+        theDog.setName("Bruno");
+        cut.addDog( theDog );
+        theDog = new Dog();
+        theDog.setName("Frank");
+        long expectedResult = cut.addDog( theDog );
+        Dog dogToUpdate = theDog;
+        String dogToFind = "Frank";
+        theDog = new Dog();
+        theDog.setName("Penny");
+        cut.addDog( theDog );
+
+        // act
+        dogToUpdate.setName("Charlie");
+        long actualResult = cut.updateDogDetails( dogToUpdate );
+
+        // assert
+        assertEquals( expectedResult, actualResult );
+    }
 }
 
