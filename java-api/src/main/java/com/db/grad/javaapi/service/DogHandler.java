@@ -46,10 +46,10 @@ public class DogHandler {
     {
         boolean result = false;
 
-        Dog theDog = itsDogsRepo.findById(uniqueId);
+        Dog theDog = dogsRepo.findById(uniqueId);
         if(theDog != null)
         {
-            result = itsDogsRepo.delete(theDog);
+            result = dogsRepo.delete(theDog);
         }
 
         return  result;

@@ -160,7 +160,7 @@ public class DogsHandlerTest {
     public  void    add_dog_and_remove_dog_that_doess_not_exist_return_number_of_dogs_is_one()
     {
         // arrange
-        DogHandler cut = new DogHandler( itsDogRepo );
+        DogHandler cut = new DogHandler( dogRepo );
         Dog theDog = new Dog();
         theDog.setName("Bruno");
         long uniqueId = cut.addDog( theDog );
