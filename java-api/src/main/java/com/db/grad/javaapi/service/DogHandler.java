@@ -36,4 +36,9 @@ public class DogHandler {
     public Dog getDogById(long uniqueId) {
         return dogsRepo.findById(uniqueId);
     }
+
+    public long updateDogDetails(Dog dogToUpdate)
+    {
+        return dogsRepo.save( dogToUpdate );
+    }
 }
