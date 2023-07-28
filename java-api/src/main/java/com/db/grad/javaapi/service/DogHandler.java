@@ -32,4 +32,8 @@ public class DogHandler {
         }
         return result.get(0);
     }
+
+    public Dog getDogById(long uniqueId) {
+        return dogsRepo.findById(uniqueId);
+    }
 }
