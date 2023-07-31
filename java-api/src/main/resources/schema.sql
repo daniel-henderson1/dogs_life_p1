@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS dogs;
 CREATE table dogs
-    (dogID int auto_increment PRIMARY KEY, dogName varchar(50), dogAge int)
+    (dogID int auto_increment PRIMARY KEY, name varchar(50), age int)
 ;

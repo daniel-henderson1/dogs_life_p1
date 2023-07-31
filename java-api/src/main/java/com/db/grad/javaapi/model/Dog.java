@@ -1,16 +1,25 @@
 package com.db.grad.javaapi.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "dogs")
 public class Dog
 {
-    private long id;
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long dogID;
 
-    public long getId() {
-        return id;
+    private String name;
+    private int age;
+
+
+    public long getDogID() {
+        return dogID;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setDogID(long dogID) {
+        this.dogID = dogID;
     }
 
     public String getName() {
@@ -19,5 +28,22 @@ public class Dog
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "dogID=" + dogID +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

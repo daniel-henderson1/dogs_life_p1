@@ -1,5 +1,5 @@
 INSERT into dogs
-    (dogName, dogAge)
+    (name,age)
 values
     ('Nacho', 12),
     ('Shotgun', 7),
