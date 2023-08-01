@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/esm/Row'
 import Button from 'react-bootstrap/esm/Button'
 import { useState } from 'react'
+import { saveHero } from '../services/hero-service'
+import { useNavigate } from 'react-router-dom'
 
 const HeroForm = () => {
   const [alias, setAlias] = useState('');
@@ -12,6 +14,8 @@ const HeroForm = () => {
   const handleAliasChange = (event)=> {
     setAlias(event.target.value);
 }
+
+const navigate = useNavigate();
 
 const handleNameChange = (event)=>{
     setName(event.target.value);
@@ -26,14 +30,24 @@ const handleTeamChange = (event)=>{
 }
 
 const handleSubmit =(event)=>{
-  event.preventDefault();
-  let hero = {};
-  hero.alias = alias;
-  hero.name = name;
-  hero.ability = ability;
-  hero.teamID = teamID;
-  console.log(hero);
-}
+    event.preventDefault();
+    let hero = {};
+    hero.alias = alias;
+    hero.name = name;
+    hero.superpower = ability;
+    hero.teamID = teamID;
+    saveHero(hero)
+      .then(res => {
+         setAbility('');
+         setAlias('');
+         setName('');
+         setTeamID(0);
+         navigate("/")
+         })
+       .catch(err=>{
+          console.log(err);
+         })   
+   }
 
 return (
     <Row className='heroForm'>
