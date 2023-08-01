@@ -44,9 +44,19 @@
 .card-img-top{
   max-height: inherit;
 }
+
 .imgContainer{
   padding: 10px;
   max-height: 250px;
   min-height: 250px;
   max-width: 250px;
+}
+
+.heroForm {
+  display: flex;
+  width: 100%;
+  max-width: 40%;
+  margin: 0 auto;
+  padding-top: 20px;
+  justify-content: center;
 }
